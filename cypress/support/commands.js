@@ -10,10 +10,13 @@ const SEL = {
     'input[id="btnSzukaj"]',
 
   // A place where messages/results appear is labeled “Komunikat” in the UI. :contentReference[oaicite:2]{index=2}
-  messageRegion: () =>
-    cy.contains(/^divInfoKomunikat$/)
-      .parent()
-      .should("be.visible")
+  //messageRegion: () =>
+    //cy.contains(/^divInfoKomunikat$/)
+      //.parent()
+      //.should("be.visible")
+  // Stable message container (never changes).
+  messageRegion: () => cy.get("#divInfoKomunikat").should("be.visible")
+  
 };
 
 Cypress.Commands.add("openRegonSearch", (path = "/index.aspx") => {
@@ -37,8 +40,8 @@ Cypress.Commands.add("expectInvalidRegonMessage", () => {
     .invoke("text")
     .then((t) => {
       expect(t).to.match(/REGON/i);
-      expect(t).to.match(/nieprawidł/i);        // catches "nieprawidłowy/nieprawidłowa/..."
-      expect(t).to.match(/cyfr.*kontrol/i);      // "cyfry kontrolnej" (allow minor edits)
+      expect(t).to.match(/nieprawidł/i);
+      expect(t).to.match(/cyfr.*kontrol/i);
     });
 });
 
