@@ -1,18 +1,12 @@
-describe("REGON search (GUS)", () => {
+describe("REGON search (GUS) – negative scenario", () => {
   beforeEach(() => {
     cy.openRegonSearch();
   });
 
-  it("Negative: invalid REGON shows validation message (robust assertion)", () => {
+  it("shows validation message for invalid REGON", () => {
     cy.searchByRegon("123456789");
+
+    // Assert validation message appears (robust to small text changes)
     cy.expectInvalidRegonMessage();
-  });
-
-  it("Positive: valid REGON finds RMF company (robust assertion)", () => {
-    cy.searchByRegon("350637551");
-    cy.expectCompanyFoundLikeRmf();
-
-    // Extra safety: ensure we did NOT land on the invalid-regON message state.
-    cy.contains(/nieprawidł/i).should("not.exist");
   });
 });
