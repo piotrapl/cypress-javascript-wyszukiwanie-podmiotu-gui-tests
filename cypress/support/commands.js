@@ -8,6 +8,7 @@
 
 const SEL = {
 // regonInput znajduje element o id zawierającym "txtRegon"
+  regonInput:
     'input[id*="txtRegon"]', 
 // searchButton znajduje element o id równym dokładnie "btnSzukaj"
   searchButton:
@@ -26,6 +27,10 @@ Cypress.Commands.add("openRegonSearch", (path = "/index.aspx") => {
 
 });
 
+// komanda searchByRegon
+// Wybiera pole REGON (pojawia się w nim kursor), wpisuje numer REGON i klika przycisk 'Szukaj'
+// optymalizuje kod testów, unika powtarzania
+// to jest sekwencja działań użytkownika, nie tylko pojedyncza akcja    
 Cypress.Commands.add("searchByRegon", (regon) => {
   // Select REGON “tab/option” if present, then type.
   cy.contains(/^REGON$/).click({ force: true });
@@ -33,10 +38,10 @@ Cypress.Commands.add("searchByRegon", (regon) => {
   cy.get(SEL.searchButton).click();
 });
 
+Cypress.Commands.add("expectInvalidRegonMessage", () => {
   // Asercja sprawdzająca, czy komunikat o błędzie REGON jest widoczny
   // Sprawdza, czy tekst komunikatu zawiera słowa "REGON", "nieprawidł" i "cyfr...kontrol"
-  // używa wyrażeń regularnych, aby być odpornym na drobne zmiany w tekście
-Cypress.Commands.add("expectInvalidRegonMessage", () => {
+  // Używa wyrażeń regularnych, aby być odpornym na drobne zmiany w tekście komunikatu
   SEL.messageRegion()
     .invoke("text")
     .then((t) => {
