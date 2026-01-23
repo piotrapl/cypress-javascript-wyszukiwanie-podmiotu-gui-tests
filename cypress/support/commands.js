@@ -1,7 +1,7 @@
 const SEL = {
   // Try hard to find the REGON input without relying on a single fragile id.
   regonInput:
-    'input[id*="txtREGON"]', 
+    'input[id*="txtRegon"]', 
     //input[name*="Regon"], input[placeholder*="REGON"], input[aria-label*="REGON"]',
 
   // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
