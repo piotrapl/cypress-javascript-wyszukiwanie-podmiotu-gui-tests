@@ -5,9 +5,9 @@ const SEL = {
     //input[name*="Regon"], input[placeholder*="REGON"], input[aria-label*="REGON"]',
 
   // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
-  searchButton: () => cy.contains('button, input[type="button"], a', /^Szukaj$/),
-  //searchButton:
-    //'input[id*="btnSzukaj"]',
+  //searchButton: () => cy.contains('button, input[type="szukaj"], a', /^Szukaj$/),
+  searchButton:
+    'input[id*="btnSzukaj"]',
 
   // A place where messages/results appear is labeled “Komunikat” in the UI. :contentReference[oaicite:2]{index=2}
   messageRegion: () =>
@@ -28,7 +28,7 @@ Cypress.Commands.add("searchByRegon", (regon) => {
   // Select REGON “tab/option” if present, then type.
   cy.contains(/^REGON$/).click({ force: true });
   cy.get(SEL.regonInput).first().clear().type(regon);
-  SEL.searchButton().click();
+  cy.get(SEL.searchButton).click();
 });
 
 Cypress.Commands.add("expectInvalidRegonMessage", () => {
