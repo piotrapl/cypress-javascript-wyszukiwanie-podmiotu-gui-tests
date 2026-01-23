@@ -1,0 +1,11 @@
+{
+  "name": "cypress-regon",
+  "private": true,
+  "devDependencies": {
+    "cypress": "^13.0.0"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
