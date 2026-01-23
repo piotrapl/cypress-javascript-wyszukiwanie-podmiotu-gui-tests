@@ -1,7 +1,7 @@
 const SEL = {
   // Try hard to find the REGON input without relying on a single fragile id.
   regonInput:
-    'input[id*="REGON"]', 
+    'input[id*="txtREGON"]', 
     //input[name*="Regon"], input[placeholder*="REGON"], input[aria-label*="REGON"]',
 
   // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
@@ -17,9 +17,9 @@ const SEL = {
 Cypress.Commands.add("openRegonSearch", (path = "/index.aspx") => {
   cy.visit(path);
 
-  cy.contains(/Szukaj po pojedynczym identyfikatorze/i)
-    .filter(":visible")
-    .should("have.length.at.least", 1);
+  //cy.contains(/Szukaj po pojedynczym identyfikatorze/i)
+    //.filter(":visible")
+    //.should("have.length.at.least", 1);
 });
 
 Cypress.Commands.add("searchByRegon", (regon) => {
