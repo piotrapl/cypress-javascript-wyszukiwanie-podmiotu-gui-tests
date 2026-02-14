@@ -8,7 +8,7 @@ Rzultat wykonania testów w środowisku CI:
 ## Testy automatyczne sprawdzają:
 
 Wyszukiwanie podmiotu po numerze REGON
-- obsługę przypadku podania prze zużytkownika błędnego numeru REGON
+- obsługę przypadku podania przez zużytkownika błędnego numeru REGON
 
 ## Projekt zawiera 1 test:
 
@@ -18,9 +18,11 @@ Testy napisane zgodnie z tzw. zasadą DRY (Don't Repet Yourself), minimalizacji 
 
 używają odpornych asercji (niezależnych od drobnych zmian treści)
 
-## Projeskt jest zintegrowany z procesem CI
+## Projekt jest zintegrowany z procesem CI (GitHub Actions)
 
-### Wymagania
+Po każdym push/pull request w środowisku CI (Ubuntu Linux) uruchamiane są testy.
+
+### Wymagania systemowe
 
 Node.js ≥ 16
 
