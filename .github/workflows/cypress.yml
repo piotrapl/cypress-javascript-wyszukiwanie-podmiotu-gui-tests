@@ -1,4 +1,4 @@
-name: CI - Cypress GUI Testing
+name: CI - Cypress GUI Tests
 
 on:
   push:
