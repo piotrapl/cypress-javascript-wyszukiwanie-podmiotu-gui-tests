@@ -18,6 +18,8 @@ Testy napisane zgodnie z tzw. zasadą DRY (Don't Repet Yourself), minimalizacji 
 
 używają odpornych asercji (niezależnych od drobnych zmian treści)
 
+## Projeskt jest zintegrowany z procesem CI
+
 ### Wymagania
 
 Node.js ≥ 16
@@ -41,7 +43,7 @@ npm install
 Tryb interaktywny (GUI)
 npm run cy:open
 
-Tryb headless (CI / terminal)
+Tryb headless ( / terminal)
 npm run cy:run
 
 ### Co można zoptymalizować / dodać ?
